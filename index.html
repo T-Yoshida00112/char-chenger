@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Charactor Chenger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-md ">
+                <a class="navbar-brand" href="#">
+                    <h1>Charactor Chenger</h1>
+                </a>
+                <button id="chenge-btn" class="btn btn-outline-success">変更</button>
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="wrapper bg-dark bg-gradient text-light">
+            <div class="container">
+                <div class="row pt-5 pb-5">
+                    <div class="col">
+                        <p>変更したい文字列</p>
+                        <input class="d-block w-90" type="text" id="char-before">
+                        <p>元の文章</p>
+                        <textarea class="d-block w-90" id="text-before" cols="50" rows="10"></textarea>
+                    </div>
+                    <div class="col">
+                        <p>変更後の文字列</p>
+                        <input type="text" id="char-after">
+                        <p>変更後の文章</p>
+                        <div class="p-relative w-90 bg-white text-dark">
+                            <p id="text-after">
+                                ここに結果が出力されます
+                            </p>
+                            <button class="copy-btn" onclick="copy()">
+                                コピーする
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.getElementById("chenge-btn").onclick = function () {
+            const textBefore = document.getElementById("text-before").value;
+            const charBefore = document.getElementById("char-before").value
+            const charAfter = document.getElementById("char-after").value;
+            const textAfter = textBefore.split(charBefore).join(charAfter);
+            console.log(textAfter);
+            document.getElementById("text-after").innerText = textAfter;
+        }
+        document.getElementById("copy-btn").onclick = function () {
+            const copyText = document.getElementById("text-after");
+            copyText.select();
+            document.execCommand("copy");
+            alert("コピーできました！");
+        }
+    </script>
+</body>
+
+</html>

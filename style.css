@@ -1,0 +1,23 @@
+.wrapper{
+    overflow: hidden;
+    line-height: 1.5;
+    min-height: 100vh;
+}
+textarea{
+    resize: vertical;
+    width: 100%;
+    min-height: 100px;
+    overflow: visible;
+}
+.copy-btn{
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    background: white;
+    color: black;
+}
+
+.p-relative{
+    position: relative;
+}
