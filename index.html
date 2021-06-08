@@ -26,22 +26,23 @@
     <main>
         <div class="wrapper bg-dark bg-gradient text-light">
             <div class="container">
+                <p class="pt-5">
+                    以下の文章の
+                    <input type="text" id="char-before">
+                    を
+                    <input type="text" id="char-after">
+                    に書き換えます。
+                </p>
                 <div class="row pt-5 pb-5">
                     <div class="col">
-                        <p>変更したい文字列</p>
-                        <input class="d-block w-90" type="text" id="char-before">
                         <p>元の文章</p>
                         <textarea class="d-block w-90" id="text-before" cols="50" rows="10"></textarea>
                     </div>
                     <div class="col">
-                        <p>変更後の文字列</p>
-                        <input type="text" id="char-after">
                         <p>変更後の文章</p>
                         <div class="p-relative w-90 bg-white text-dark">
-                            <p id="text-after">
-                                ここに結果が出力されます
-                            </p>
-                            <button class="copy-btn" onclick="copy()">
+                            <textarea class="d-block w-90" id="text-after" cols="50" rows="10">ここに結果が出力されます</textarea>
+                            <button id="copy-btn" class="copy-btn">
                                 コピーする
                             </button>
                         </div>
@@ -62,6 +63,7 @@
         }
         document.getElementById("copy-btn").onclick = function () {
             const copyText = document.getElementById("text-after");
+            console.log(copyText);
             copyText.select();
             document.execCommand("copy");
             alert("コピーできました！");
